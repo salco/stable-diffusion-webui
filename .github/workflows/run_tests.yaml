@@ -20,7 +20,10 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: ${{ runner.os }}-pip-
       - name: Run tests
-        run: python launch.py --tests basic_features --no-half --disable-opt-split-attention --use-cpu all --skip-torch-cuda-test
+        run: |
+          pip install pytest
+          pip install pytest-cov
+          python launch.py --tests basic_features --no-half --disable-opt-split-attention --use-cpu all --skip-torch-cuda-test --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
       - name: Upload main app stdout-stderr
         uses: actions/upload-artifact@v3
         if: always()

@@ -62,14 +62,19 @@ jobs:
             ${{ runner.os }}-
       - name: Run tests
         run: |
+          pip install coverage
           pip install pytest
           pip install pytest-cov
           python launch.py --tests basic_features --no-half --disable-opt-split-attention --use-cpu all --skip-torch-cuda-test
-#      - name: Upload main app stdout-stderr
-#        uses: actions/upload-artifact@v3
-#        if: always()
-#        with:
-#          name: stdout-stderr
-#          path: |
-#            test/stdout.txt
-#            test/stderr.txt
+      - name: lazy cat
+        run: |
+          ls .
+          cat test/stderr.txt
+      - name: Upload main app stdout-stderr
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: stdout-stderr
+          path: |
+            test/stdout.txt
+            test/stderr.txt

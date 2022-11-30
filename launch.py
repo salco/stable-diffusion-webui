@@ -268,11 +268,6 @@ def tests(test_dir):
     if "--skip-torch-cuda-test" not in sys.argv:
         sys.argv.append("--skip-torch-cuda-test")
 
-    sys.argv.append("--junitxml=junit/test-results.xml")
-    sys.argv.append("--cov=com")
-    sys.argv.append("--cov-report=xml")
-    sys.argv.append("--cov-report=html")
-
     print(f"Launching Web UI in another process for testing with arguments: {' '.join(sys.argv[1:])}")
 
     with open('test/stdout.txt', "w", encoding="utf8") as stdout, open('test/stderr.txt', "w", encoding="utf8") as stderr:

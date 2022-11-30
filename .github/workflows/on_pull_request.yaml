@@ -65,7 +65,9 @@ jobs:
           pip install coverage
           pip install pytest
           pip install pytest-cov
-          coverage run -m launch --tests basic_features --no-half --disable-opt-split-attention --use-cpu all --skip-torch-cuda-test
+          coverage run --append launch.py --tests basic_features --no-half --disable-opt-split-attention --use-cpu all --skip-torch-cuda-test
+          coverage report
+          coverage xml
       - name: lazy cat
         if: always()
         run: |

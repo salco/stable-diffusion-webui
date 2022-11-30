@@ -67,6 +67,7 @@ jobs:
           pip install pytest-cov
           python launch.py --tests basic_features --no-half --disable-opt-split-attention --use-cpu all --skip-torch-cuda-test
       - name: lazy cat
+        if: always()
         run: |
           ls .
           cat test/stderr.txt

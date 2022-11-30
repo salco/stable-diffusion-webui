@@ -32,7 +32,7 @@ jobs:
       - run: pip install -r requirements_versions.txt
       - name: Install PyLint
         run: pip install pylint
-      # This lets PyLint check to see if it can resolve imports
+      # This lets PyLint check to see if it can resolve imports 
       - name: Install dependencies
         run : |
           export COMMANDLINE_ARGS="--skip-torch-cuda-test --exit"

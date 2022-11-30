@@ -79,3 +79,4 @@ jobs:
           path: |
             test/stdout.txt
             test/stderr.txt
+            coverage.xml

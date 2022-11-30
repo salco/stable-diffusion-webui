@@ -287,8 +287,7 @@ def tests(test_dir):
     cov.stop()
     cov.save()
 
-    cov.html_report()
-    cov.lcov_report()
+    cov.xml_report()
     return exitcode
 
 

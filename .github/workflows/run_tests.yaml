@@ -1,9 +1,10 @@
 name: Run basic features tests on CPU with empty SD model
 
 on:
-  - push
-  - pull_request
-  - workflow_dispatch
+  workflow_run:
+    workflows: [" Run Linting/Formatting on Pull Requests"]
+    types:
+      - completed
 
 jobs:
   test:

@@ -4,8 +4,8 @@ branch = True
 
 omit = ./repository/*
 
-include = 
-    launch.py
-    webui.py
-    modules/*
-    scripts/*
+source =
+    ./launch.py
+    ./webui.py
+    modules
+    scripts

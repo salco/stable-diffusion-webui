@@ -1,0 +1,11 @@
+# .coveragerc to control coverage.py
+[run]
+branch = True
+
+omit = ./repository/*
+
+source =
+    ./launch.py
+    ./webui.py
+    modules
+    scripts

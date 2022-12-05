@@ -259,6 +259,7 @@ def prepare_enviroment():
 
 
 def tests(test_dir):
+    
     if "--api" not in sys.argv:
         sys.argv.append("--api")
     if "--ckpt" not in sys.argv:
@@ -272,11 +273,14 @@ def tests(test_dir):
     with open('test/stdout.txt', "w", encoding="utf8") as stdout, open('test/stderr.txt', "w", encoding="utf8") as stderr:
         proc = subprocess.Popen([sys.executable, *sys.argv], stdout=stdout, stderr=stderr)
 
+
     import test.server_poll
     exitcode = test.server_poll.run_tests(proc, test_dir)
 
     print(f"Stopping Web UI process with id {proc.pid}")
     proc.kill()
+
+
     return exitcode
 
 
